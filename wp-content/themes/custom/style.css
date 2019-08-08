@@ -1,0 +1,18 @@
+/**
+ * Theme Name: Custom
+ */
+
+.media > .media {
+    margin-left: 70px;
+}
+
+ul.cat > li > a:before {
+    font-family: FontAwesome;
+    content: "\f105";
+    margin-right: 10px;
+
+}
+
+#subscr-btn{
+    margin-top: -32px;
+}
