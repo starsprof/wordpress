@@ -31,7 +31,7 @@ function custom_theme_header_settings_init(  ) {
 	);
 
 	add_settings_field(
-		'custom_theme_phone_field',
+		'custom_theme_phone',
 		'Header phone',
 		'custom_theme_phone_field_render',
 		'custom_theme_header_page',

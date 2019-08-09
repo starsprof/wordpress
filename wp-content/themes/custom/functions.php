@@ -87,6 +87,7 @@ add_action('phpmailer_init', 'mailtrap');
 
 
 require_once ('settings/header-settings.php');
+require_once ('settings/footer-settings.php');
 function add_theme_pages() {
 	add_menu_page(
 		'Theme settings',
@@ -106,7 +107,7 @@ function add_theme_pages() {
 		'Footer setting',
 		'administrator',
 		'theme-settings-footer',
-		'testMenu' );
+		'renderFooterSettingsPage' );
 	add_submenu_page(
 		'theme-setting',
 		'Contact setting',
