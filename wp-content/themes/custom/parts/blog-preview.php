@@ -20,7 +20,18 @@
 					}
 					?></a></li>
 			<li><i class="fa fa-comments"></i><a
-					href="#"><?php echo get_comments_number() ?> Comments</a></li>
+					href="#"><?php echo get_comments_number() ?> Comments</a>
+            </li>
+            <li>
+                <?php
+                $posttags = get_the_terms($post->ID, 'tag-tax');
+                if( $posttags ){
+                    echo '<i class="fa fa-tags"></i>';
+                    foreach( $posttags as $tag ){
+                        echo '<a href="#">' . $tag->name . '</a> ';
+                    }
+                }
+                ?></li>
 		</ul>
 		<a href="<?php echo get_permalink() ?>" class="readmore pull-right">Continue reading
 			<i class="fa fa-angle-right"></i></a>
