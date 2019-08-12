@@ -3,15 +3,7 @@
         <div class="row">
             <div class="col-sm-3 col-lg-3">
                 <div class="widget">
-                    <h4>Get in touch with us</h4>
-                    <address>
-                        <strong>Sailor company Inc</strong><br>
-                        Sailor suite room V124, DB 91<br>
-                        Someplace 71745 Earth </address>
-                    <p>
-                        <i class="icon-phone"></i> (123) 456-7890 - (123) 555-7891 <br>
-                        <i class="icon-envelope-alt"></i> email@domainname.com
-                    </p>
+	                <?php echo get_option('custom_theme_footer_settings')['custom_theme_footer_contacts'] ?>
                 </div>
             </div>
             <div>
@@ -71,8 +63,15 @@
                 </div>
                 <div class="col-lg-6">
                     <ul class="social-network">
-                        <li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        <?php
+                        $social_options = get_option( 'custom_theme_social' );
+                        ?>
+                        <?php if( isset($social_options['custom_theme_social_facebook_check'])): ?>
+                        <li><a href="<?php echo $social_options['custom_theme_social_facebook_link'] ?>" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                        <?php endif;
+                        if( isset($social_options['custom_theme_social_twitter_check'])): ?>
+                            <li><a href="<?php echo $social_options['custom_theme_social_twitter_link'] ?>" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+	                    <?php endif; ?>
                         <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
                         <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
                         <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>

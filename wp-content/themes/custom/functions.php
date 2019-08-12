@@ -86,8 +86,9 @@ function mailtrap($phpmailer) {
 add_action('phpmailer_init', 'mailtrap');
 
 
+require_once ('settings/header-settings.php');
+require_once ('settings/footer-settings.php');
 function add_theme_pages() {
-	//$themeSettings = new ThemeSettings();
 	add_menu_page(
 		'Theme settings',
 		'Theme',
@@ -106,7 +107,7 @@ function add_theme_pages() {
 		'Footer setting',
 		'administrator',
 		'theme-settings-footer',
-		'testMenu' );
+		'renderFooterSettingsPage' );
 	add_submenu_page(
 		'theme-setting',
 		'Contact setting',
@@ -114,47 +115,6 @@ function add_theme_pages() {
 		'administrator',
 		'theme-settings-contact',
 		'testMenu' );
-}
-function renderHeaderSettingsPage(){
-    ?>
-    <div class="wrap">
-        <h2><?php echo get_admin_page_title()?></h2>
-        <form method="post" action="" novalidate="">
-            <table class="form-table">
-                <tr>
-                    <th scope="row"><label for="site_new">Название сайта</label></th>
-                    <td>
-                        <input name="site_new" type="text" id="site_new" class="regular-text" value="" />
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row"><label for="">Краткое описание</label></th>
-                    <td>
-                        <input name="site_new" type="text" id="" class="regular-text" value="" />
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row"><label for="">Иконка сайта</label></th>
-                    <td>
-                        <div class="attachment-media-view">
-
-                            <button type="button" class="upload-button button-add-media">Выберите значок сайта</button>
-
-                            <div class="actions">
-
-                            </div>
-                        </div>
-                        <span class="description customize-control-description"><p>Значки сайта - то что вы видите на вкладках браузера, панелях закладок и внутри мобильных приложений WordPress. Загрузите их тут!</p><p>Значки сайта должны быть квадратными и как минимум размером в <strong>512 × 512</strong> пикселов.</p></span>
-                    </td>
-                </tr>
-
-            </table>
-            <p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="<?php _e('Сохранить изменения') ?>"></p>
-        </form>
-
-    </div>
-
-    <?php
 }
 function testMenu()
 {
