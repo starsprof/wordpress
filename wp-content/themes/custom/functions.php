@@ -86,8 +86,9 @@ function mailtrap($phpmailer) {
 add_action('phpmailer_init', 'mailtrap');
 
 
+require_once ('settings/header-settings.php');
+require_once ('settings/footer-settings.php');
 function add_theme_pages() {
-	//$themeSettings = new ThemeSettings();
 	add_menu_page(
 		'Theme settings',
 		'Theme',
@@ -106,7 +107,7 @@ function add_theme_pages() {
 		'Footer setting',
 		'administrator',
 		'theme-settings-footer',
-		'testMenu' );
+		'renderFooterSettingsPage' );
 	add_submenu_page(
 		'theme-setting',
 		'Contact setting',
@@ -114,13 +115,6 @@ function add_theme_pages() {
 		'administrator',
 		'theme-settings-contact',
 		'testMenu' );
-}
-function renderHeaderSettingsPage(){
-	?>
-	<div class="wrap"><h2><?php echo get_admin_page_title()?></h2>
-
-	</div>
-<?php
 }
 function testMenu()
 {
